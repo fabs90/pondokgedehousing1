@@ -1,0 +1,387 @@
+/* Style for the preloader */
+.preloader {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}
+
+body {
+    background-color: #faf5ff;
+    font-family: "Open Sans", sans-serif;
+    scroll-behavior: smooth;
+    display: none;
+}
+
+.content {
+    display: none; /* Initially hide the content */
+}
+
+/* FAB */
+/* Floating action button styles */
+.floating-action-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #faf5ff; /* Choose your preferred color */
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 9999; /* Ensure it's above other elements */
+}
+
+.floating-action-button i {
+    font-size: 20px;
+    /* Center the icon vertically and horizontally */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Navbar */
+.navbar {
+    font-family: "Open Sans", sans-serif;
+    font-size: 13px;
+    padding: 20px;
+    text-transform: uppercase;
+}
+
+.navbar-nav {
+    margin-left: 5%;
+}
+
+.navbar-nav .nav-item {
+    padding: 0 10px;
+}
+
+.socmed-link {
+    margin-right: 5%;
+}
+
+.text-muted {
+    font-size: 16px;
+    font-weight: 300;
+    color: #9c9c9c;
+}
+
+/* .swiper {
+    width: 100%;
+    height: 300px;
+} */
+
+/* Carousel */
+.carousel-img {
+    position: relative;
+    max-width: 100%; /* Mengatur lebar maksimum carousel sesuai lebar parent */
+    height: auto; /* Memastikan gambar tetap proporsional saat lebar diubah */
+    max-height: 100%; /* Mengatur tinggi maksimum carousel */
+}
+
+.img-slide {
+    width: 100%; /* Set the width to 100% to fill the container */
+    height: auto; /* Automatically adjust the height to maintain aspect ratio */
+    max-width: 100%; /* Ensure the image does not exceed its container's width */
+    max-height: 100%; /* Ensure the image does not exceed its container's height */
+}
+
+/* Informasi Umum */
+.card-informasi {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.image-container {
+    overflow: hidden;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 60vh;
+    transition: transform 0.5s ease-in-out;
+}
+
+.card-img-top:hover {
+    transform: scale(1.1);
+}
+
+.card-author {
+    font-size: 12px;
+}
+
+.card-title a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: black;
+}
+
+.card-author-desc span {
+    margin: 0 0 0 3px;
+}
+
+.card-text {
+    font-size: 14px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Batasi hingga 2 baris */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Tambahkan titik-titik elipsis jika teks terpotong */
+}
+
+.read-more {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: black;
+}
+
+.read-more:hover {
+    color: #444343;
+}
+
+/* Calender */
+.calender {
+    width: 84%;
+    border: none;
+}
+
+/* umkm */
+.swiper-umkm {
+    width: 100%;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+}
+
+.umkm-row div a img {
+    width: 50%;
+}
+
+/* Gallery */
+/* Ensure the swiper-gallery container takes up the full width and height */
+.swiper-gallery {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin-bottom: 10px; /* Adjust as needed */
+}
+
+/* Set the height of each swiper-slide to 60% of its container */
+.swiper-slide {
+    height: 60%; /* Set height to 60% */
+    margin-bottom: 10px; /* Adjust margin between slides if needed */
+}
+
+/* Container for the images */
+.image-container-gallery {
+    width: 100%; /* Make the container take full width */
+    height: 100%; /* Ensure the container takes the full height */
+    overflow: hidden; /* Hide any overflow */
+    margin-bottom: 10px; /* Adjust as needed */
+}
+
+/* Make sure the image covers the entire container while maintaining aspect ratio */
+.image-container-gallery img {
+    width: 100%; /* Make the image take full width of the container */
+    height: 100%; /* Make the image take full height of the container */
+    object-fit: cover; /* Cover the entire container */
+}
+
+/* Adjust the gallery-row links to ensure images fit properly */
+.gallery-row a img {
+    width: 100%; /* Ensure the image takes full width */
+    height: 100%; /* Ensure the image takes full height */
+    object-fit: cover; /* Cover the container */
+}
+
+.peta-gmap iframe {
+    width: 720px;
+    height: 650px;
+}
+
+/* Footer */
+#footer section div a {
+    text-decoration: none;
+}
+
+.satpam-graphic {
+    width: 50%;
+    margin: auto;
+}
+
+.gallery-img {
+    width: 100%; /* Ensure the image takes the full width of its container */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 100%; /* Ensure the image does not exceed its container's width */
+    max-height: 100%; /* Ensure the image does not exceed its container's height */
+}
+
+/* Detail Page */
+.detail-img {
+    width: auto;
+    height: fit-content;
+}
+
+.detail-container {
+    margin-bottom: 5%;
+}
+
+.other-news ol {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.other-news li {
+    margin: 10px 0;
+}
+
+.other-news h5 {
+    font-size: 16px;
+}
+
+/* SM Size  */
+@media (max-width: 576px) {
+    .navbar {
+        margin: 5px 0;
+    }
+
+    .navbar-nav {
+        margin-left: 0;
+    }
+
+    .nav-item.nav-link {
+        margin: 10px 0;
+    }
+
+    .socmed-link {
+        margin-right: 0;
+    }
+
+    .carousel-img {
+        position: relative;
+        max-width: 100%; /* Mengatur lebar maksimum carousel sesuai lebar parent */
+        height: auto; /* Memastikan gambar tetap proporsional saat lebar diubah */
+        max-height: 100%; /* Mengatur tinggi maksimum carousel */
+    }
+
+    .img-slide {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .image-container-gallery {
+        width: 50%; /* Set the desired width */
+        height: 50%; /* Set the desired height */
+        overflow: hidden; /* Hide the overflowing parts */
+    }
+
+    .calender {
+        width: 100%;
+    }
+
+    /* Detail Page */
+    .detail-img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* MD Size */
+@media (max-width: 767.98px) {
+    .navbar {
+        margin: 5px 0;
+    }
+
+    .navbar-nav {
+        margin-left: 0;
+    }
+
+    .nav-item.nav-link {
+        margin: 10px 0;
+    }
+
+    .socmed-link {
+        margin-right: 0;
+    }
+
+    .carousel-img {
+        position: relative;
+        max-width: 100%; /* Mengatur lebar maksimum carousel sesuai lebar parent */
+        height: auto; /* Memastikan gambar tetap proporsional saat lebar diubah */
+        max-height: 100%; /* Mengatur tinggi maksimum carousel */
+    }
+
+    /* Informasi Umum */
+    .card-informasi {
+        width: 100%;
+        max-height: 100%;
+    }
+
+    .calender {
+        width: 100%;
+        border: none;
+    }
+
+    .peta-gmap iframe {
+        width: 300px;
+        height: 250px;
+    }
+
+    .image-container-gallery {
+        width: 50%; /* Set the desired width */
+        height: 50%; /* Set the desired height */
+        overflow: hidden; /* Hide the overflowing parts */
+    }
+
+    /* Detail Page */
+    .detail-img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* LG Size */
+@media (max-width: 991.98px) {
+    .navbar {
+        margin: 5px 0;
+    }
+
+    .navbar-nav {
+        margin-left: 0;
+    }
+
+    .nav-item.nav-link {
+        margin: 10px 0;
+    }
+
+    .socmed-link {
+        margin-right: 0;
+    }
+
+    .image-container-gallery {
+        width: 50%; /* Set the desired width */
+        height: 50%; /* Set the desired height */
+        overflow: hidden; /* Hide the overflowing parts */
+    }
+}
+
+/* XL Size */
+@media (max-width: 1199.98px) {
+}
+
+/* XXL Size */
+@media (max-width: 1399.98px) {
+}

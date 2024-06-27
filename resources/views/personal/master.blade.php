@@ -1,0 +1,5 @@
+@include('personal.header')
+@include('personal.navbar')
+@include('personal.content')
+@include('personal.footer')
+@include('personal.script')
