@@ -47,13 +47,15 @@ Route::middleware([isAdmin::class])->group(function () {
     Route::get('/dashboard/carousel/menu-utama/create', [CarouselController::class, 'CarouselHeroCreate'])->name('carousel.menu-utama.create');
     Route::post('/dashboard/carousel/menu-utama/store', [HeroCarouselController::class, 'store'])->name('carousel.menu-utama.store');
     Route::get('/dashboard/carousel/menu-utama/edit/{slug}', [HeroCarouselController::class, 'edit'])->name('carousel.menu-utama.edit');
-    Route::patch('/dashboard/carousel/menu-uteama/{slug}/update', [HeroCarouselController::class, 'update'])->name('carousel.menu-utama.update');
-    Route::delete('/dashboard/carousel/menu-uteama/{slug}/delete', [HeroCarouselController::class, 'destroy'])->name('carousel.menu-utama.destroy');
+    Route::patch('/dashboard/carousel/menu-utama/{slug}/update', [HeroCarouselController::class, 'update'])->name('carousel.menu-utama.update');
+    Route::delete('/dashboard/carousel/menu-utama/{slug}/delete', [HeroCarouselController::class, 'destroy'])->name('carousel.menu-utama.destroy');
 
     Route::get('/dashboard/carousel/promo', [CarouselController::class, 'carouselPromoIndex'])->name('carousel.promo');
     Route::get('/dashboard/carousel/promo/create', [CarouselController::class, 'CarouselPromoCreate'])->name('carousel.promo.create');
     Route::post('/dashboard/carousel/promo/store', [PromoController::class, 'store'])->name('carousel.promo.store');
+    Route::get('/dashboard/carousel/promo/{slug}/edit', [PromoController::class, 'edit'])->name('carousel.promo.edit');
     Route::delete('/dashboard/carousel/promo/{slug}/destroy', [PromoController::class, 'destroy'])->name('carousel.promo.destroy');
+    Route::patch('/dashboard/carousel/promo/{slug}/update', [PromoController::class, 'update'])->name('carousel.promo.update');
 
     Route::get('/dashboard/carousel/gallery', [CarouselController::class, 'carouselGalleryIndex'])->name('carousel.gallery');
     Route::get('/dashboard/carousel/gallery/create', [CarouselController::class, 'carouselGalleryCreate'])->name('carousel.gallery.create');

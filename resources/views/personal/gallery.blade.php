@@ -13,7 +13,7 @@
                 <h2>Gallery</h2>
             </div>
             @foreach ($images as $item)
-                <div class="col-lg-3 col-6 image-container-gallery">
+                <div class="col-lg-3 col-6 image-detail-gallery">
                     <a href="" data-featherlight="{{ asset('storage/gallery/' . $item->image) }}">
                         <img class="img-fluid rounded gallery-detail" src="{{ asset('storage/gallery/' . $item->image) }}"
                             alt="">

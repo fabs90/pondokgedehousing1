@@ -51,7 +51,7 @@ class HeroCarouselController extends Controller
 
     public function update(Request $request, $slug)
     {
-// Find data from slug
+        // Find data from slug
         $image = HeroCarousel::where('slug', $slug)->firstOrFail();
 
         if (!$image) {
@@ -59,24 +59,33 @@ class HeroCarouselController extends Controller
             return redirect()->back();
         }
 
-// cek apakah ada gambar masuk
+        // Check if a new image has been uploaded
         if ($request->hasFile('input_gambar')) {
-            // Delete the old gambar
-            if (file_exists(public_path('/storage/hero_carousel/' . $image->gambar))) {
-                unlink(public_path('/storage/hero_carousel/' . $image->gambar));
+            // Delete the old image
+            $oldImagePath = base_path('../public_html/storage/public/hero_carousel/' . $image->gambar);
+            if (file_exists($oldImagePath)) {
+                unlink($oldImagePath);
             }
 
             // Store and set the new image
-            $image->gambar = time() . '-' . $request->file('input_gambar')->getClientOriginalName();
-            $request->file('input_gambar')->storeAs('hero_carousel', $image->gambar, 'public');
+            $imageName = time() . '-' . $request->file('input_gambar')->getClientOriginalName();
+            $request->file('input_gambar')->storeAs('hero_carousel', $imageName, 'public');
+            $image->gambar = $imageName;
 
+            // Update the slug based on the new image name
+            $image->slug = Str::slug(pathinfo($request->file('input_gambar')->getClientOriginalName(), PATHINFO_FILENAME));
+        } else {
+            // If no new image, keep the current slug
+            $image->slug = Str::slug($image->slug);
         }
 
+        // Update the keterangan
         $image->fill([
             'keterangan' => $request->input('input_keterangan', $image->keterangan),
-            'slug' => Str::slug($request->input($image->gambar, $image->slug)),
         ]);
+
         $image->save();
+
         toast('Data berhasil di update!', 'success');
         return redirect()->route('carousel.menu-utama.edit', ['slug' => $image->slug]);
     }

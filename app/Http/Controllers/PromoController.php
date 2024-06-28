@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Gallery;
 use App\Models\Promo;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
@@ -42,45 +41,52 @@ class PromoController extends Controller
 
     public function edit($slug)
     {
-        $gallery = Gallery::where('gambar', $slug)->firstOrFail();
-        if (!$gallery) {
+        $promo = Promo::where('slug', $slug)->firstOrFail();
+        if (!$promo) {
             toast('Data tidak ditemukan!', 'error');
             return redirect()->back();
         }
-        return view('admin.carousel.form-edit-gallery', compact('gallery'));
+        return view('admin.carousel.form-edit-promo', compact('promo'));
     }
 
     public function update(Request $request, $slug)
     {
         // Find data from slug
-        $gallery = Gallery::where('gambar', $slug)->firstOrFail();
+        $promo = Promo::where('slug', $slug)->firstOrFail();
 
-        if (!$gallery) {
+        if (!$promo) {
             toast('Data tidak ditemukan', 'error');
             return redirect()->back();
         }
 
-        // cek apakah ada gambar masuk
+        // Check if a new image has been uploaded
         if ($request->hasFile('input_gambar')) {
-            // Delete the old gambar )
-            if (file_exists(public_path('/storage/promo/' . $gallery->gambar))) {
-                unlink(public_path('/storage/promo/' . $gallery->gambar));
+            // Delete the old image
+            if (file_exists(public_path('/storage/promo/' . $promo->gambar))) {
+                unlink(public_path('/storage/promo/' . $promo->gambar));
             }
 
+            // Store and set the new image
+            $promo->gambar = time() . '-' . $request->file('input_gambar')->getClientOriginalName();
+            $request->file('input_gambar')->storeAs('promo', $promo->gambar, 'public');
+
+            // Update the slug based on the new image name
+            $promo->slug = Str::slug(pathinfo($request->file('input_gambar')->getClientOriginalName(), PATHINFO_FILENAME));
+        } else {
+            // If no new image, update the slug based on the current value
+            $promo->slug = Str::slug($promo->slug);
         }
 
-        // Store and set the new image
-        $gallery->gambar = time() . '-' . $request->file('input_gambar')->getClientOriginalName();
-        $request->file('input_gambar')->storeAs('promo', $gallery->gambar, 'public');
-
-        $gallery->fill([
-            'keterangan' => $request->input('input_keterangan', $gallery->keterangan),
-            'slug' => Str::slug($request->input($gallery->gambar, $gallery->slug)),
+        $promo->fill([
+            'keterangan' => $request->input('input_keterangan', $promo->keterangan),
         ]);
-        $gallery->save();
+
+        $promo->save();
+
         toast('Data berhasil di update!', 'success');
-        return redirect()->route('carousel.gallery.edit', ['slug' => $gallery->gambar]);
+        return redirect()->route('carousel.promo.edit', ['slug' => $promo->slug]);
     }
+
     public function destroy($slug)
     {
         try {

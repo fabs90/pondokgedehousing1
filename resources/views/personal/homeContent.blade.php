@@ -245,7 +245,7 @@
                         <div class="widget">
                             <h4 class="widget-title mb-4">Punya keluhan?</h4>
                             <p class="mb-4">Isi form lalu klik tombol WhatsApp!</p>
-                            <form action="#" onsubmit="sendWhatsAppMsg()" method="POST">
+                            <form>
                                 <div class="row gy-4">
                                     <div class="col-12">
                                         <div class="input-group">
@@ -263,7 +263,7 @@
                                     </div>
                                     <div class="col-4">
                                         <div class="d-grid">
-                                            <button type="submit" style="border: none">
+                                            <button type="button" style="border: none" onclick="sendWhatsAppMsg()">
                                                 <img alt="Chat on WhatsApp"
                                                     src="{{ asset('assets/img/WhatsAppButtonGreenLarge.svg') }}" />
                                             </button>

@@ -31,6 +31,8 @@
                                             alt="gambar" class=" img-fluid" style="width: 100%; height: auto;"></td>
                                     <td>{{ $item->keterangan }}</td>
                                     <td>
+                                        <a href="{{ route('carousel.promo.edit', ['slug' => $item->slug]) }}"
+                                            class="btn btn-primary">Ubah</a>
                                         <form action="{{ route('carousel.promo.destroy', ['slug' => $item->slug]) }}"
                                             method="post">
                                             @csrf
