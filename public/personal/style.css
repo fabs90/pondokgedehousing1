@@ -252,6 +252,21 @@ body {
     font-size: 16px;
 }
 
+.button-share {
+    background-color: DodgerBlue; /* Blue background */
+    border: none; /* Remove borders */
+    color: white; /* White text */
+    padding: 14px 14px; /* Some padding */
+    font-size: 16px; /* Set a font size */
+    cursor: pointer; /* Mouse pointer on hover */
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+.button-share:hover {
+    background-color: RoyalBlue;
+}
+
 /* SM Size  */
 @media (max-width: 576px) {
     .navbar {

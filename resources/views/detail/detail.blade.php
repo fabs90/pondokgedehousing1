@@ -45,6 +45,30 @@
                     </div>
                 </div>
             </div>
+            <div class="row mt-sm-2">
+                <div class="col-12">
+                    <div class="row ">
+                        <div class="col-12">
+                            <p><b>Bagikan informasi ini</b></p>
+                            <div class="share d-flex align-items-center">
+                                <a href="https://twitter.com/intent/tweet?text=http://127.0.0.1:8000/detail/{{ urlencode($data->judul) }}"
+                                    target="_blank" rel="noopener noreferrer" class="button-share">
+                                    <i class="bi bi-twitter-x"></i>
+                                </a>
+                                <a href="https://www.facebook.com/sharer/sharer.php?u=http://127.0.0.1:8000/detail/{{ urlencode($data->judul) }}"
+                                    target="_blank" class="button-share">
+                                    <i class="bi bi-facebook"></i>
+                                </a>
+                                <a href="whatsapp://send?text=http://127.0.0.1:8000/detail/{{ urlencode($data->judul) }}"
+                                    class="button-share">
+                                    <i class="bi bi-whatsapp"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
     </div>

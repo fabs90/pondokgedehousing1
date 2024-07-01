@@ -126,4 +126,3 @@ function sendWhatsAppMsg() {
     const urlToWhatsApp = `https://wa.me/6285899496182?text=Halo,perkenalkan saya ${username.value}. ${pesan.value}`
     window.open(urlToWhatsApp, "_blank")
 }
-

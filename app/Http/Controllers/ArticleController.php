@@ -56,6 +56,7 @@ class ArticleController extends Controller
                 $article->isi = $request->input_isi;
                 $article->gambar = $fileName;
                 $article->slug = Str::slug($request->input_judul);
+                $article->created_at = now();
                 $article->save();
 
                 toast('Informasi berhasil ditambah!', 'success');

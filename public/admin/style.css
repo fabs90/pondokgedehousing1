@@ -1247,3 +1247,21 @@ h6 {
     width: 50%;
     height: fit-content;
 }
+
+/*--------------------------------------------------------------
+# Article Form
+--------------------------------------------------------------*/
+.image-article-edit {
+    display: block;
+    margin-bottom: 1rem;
+    width: 75%;
+}
+
+/* Small Size */
+@media (max-width: 576px) {
+    .image-article-edit {
+        display: block;
+        margin-bottom: 1rem;
+        width: 100%;
+    }
+}

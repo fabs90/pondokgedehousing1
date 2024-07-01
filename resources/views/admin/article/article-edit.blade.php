@@ -50,6 +50,8 @@
                                 <label for="formFile" class="form-label fw-bold">Gambar <span>Gambar akan dipakai
                                         sebagai
                                         thumbnail</span></label>
+                                <img src="{{ asset('storage/images/' . $datas->gambar) }}" alt="image-edit"
+                                    class="image-article-edit">
                                 <input class="form-control" type="file" id="formFile" name="input_gambar"
                                     accept="image/*">
                             </div>
