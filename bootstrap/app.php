@@ -14,6 +14,7 @@ return Application::configure(basePath: dirname(__DIR__))
         // register middleware here
         $middleware->alias([
             'isAdmin' => App\Http\Middleware\isAdmin::class,
+            'TrackTraffic' => App\Http\Middleware\TrackTraffic::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

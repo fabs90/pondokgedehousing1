@@ -14,7 +14,7 @@ class CarouselController extends Controller
         $title = 'Yakin hapus foto?';
         $text = "Data foto akan terhapus permanen!";
         confirmDelete($title, $text);
-        return view('admin.carousel.hero-carousel-index', compact('datas'));
+        return view('admin.carousel.carousel-hero', compact('datas'));
     }
 
     public function carouselPromoIndex()

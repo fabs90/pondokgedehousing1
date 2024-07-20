@@ -46,7 +46,7 @@ class HeroCarouselController extends Controller
             toast('Data tidak ditemukan!', 'error');
             return redirect()->back();
         }
-        return view('admin.carousel.form-edit-heroCarousel', compact('image'));
+        return view('admin.carousel.form-edit-hero', compact('image'));
     }
 
     public function update(Request $request, $slug)

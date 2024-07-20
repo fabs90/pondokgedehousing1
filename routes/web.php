@@ -9,27 +9,31 @@ use App\Http\Controllers\HeroCarouselController;
 use App\Http\Controllers\PromoController;
 use App\Http\Controllers\RoleController;
 use App\Http\Middleware\isAdmin;
+use App\Http\Middleware\TrackTraffic;
 use App\Models\Article;
 use App\Models\ContactService;
 use App\Models\Gallery;
 use App\Models\HeroCarousel;
 use App\Models\Promo;
+use App\Models\Traffic;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    $contacts = ContactService::all();
-    $galleryPrev = Gallery::latest()->take(5)->get();
-    $promos = Promo::all();
-    $carouselUtama = HeroCarousel::all();
-    $articles = Article::orderBy('id', 'desc')->take(3)->get();
-    return view('personal.homeContent', compact('contacts', 'galleryPrev', 'promos', 'carouselUtama', 'articles'));
-})->name('landing.index');
+Route::middleware([TrackTraffic::class])->group(function () {
+    Route::get('/', function () {
+        $contacts = ContactService::all();
+        $galleryPrev = Gallery::latest()->take(5)->get();
+        $promos = Promo::all();
+        $carouselUtama = HeroCarousel::all();
+        $articles = Article::orderBy('id', 'desc')->take(3)->get();
+        return view('personal.homeContent', compact('contacts', 'galleryPrev', 'promos', 'carouselUtama', 'articles'));
+    })->name('landing.index');
 
-Route::get('/gallery', [GalleryController::class, 'showGallery'])->name('gallery');
-Route::get('/detail/{slug}', [DetailPostController::class, 'show'])->name('showDetail');
+    Route::get('/gallery', [GalleryController::class, 'showGallery'])->name('gallery');
+    Route::get('/detail/{slug}', [DetailPostController::class, 'show'])->name('showDetail');
 
-Auth::routes();
+    Auth::routes();
+});
 
 // Admin
 Route::middleware([isAdmin::class])->group(function () {
@@ -39,7 +43,8 @@ Route::middleware([isAdmin::class])->group(function () {
         $carouselGaleri = Gallery::all()->count();
         $informasi = Article::all()->count();
         $kontak = ContactService::all()->count();
-        return view('admin.dashboard', compact('carouselUtama', 'carouselPromo', 'carouselGaleri', 'informasi', 'kontak'));
+        $trafficWeb = Traffic::where('type', 'web')->get();
+        return view('admin.dashboard', compact('carouselUtama', 'carouselPromo', 'carouselGaleri', 'informasi', 'kontak', 'trafficWeb'));
     })->name('dashboard.index');
 
     // Carousel

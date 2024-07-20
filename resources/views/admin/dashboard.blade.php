@@ -5,7 +5,6 @@
     {{-- Left Sides Columns --}}
     <div class="col-lg-12">
         <div class="row">
-
             <!-- Sales Card -->
             <div class="col-xxl-4 col-md-6">
                 <div class="card info-card sales-card">
@@ -133,25 +132,13 @@
                                             show: false
                                         },
                                         data: [{
-                                                value: 202,
+                                                value: {{ $trafficWeb[0]->counter }},
                                                 name: 'Search Engine'
                                             },
                                             {
                                                 value: 735,
-                                                name: 'Direct'
+                                                name: 'WhatsApp'
                                             },
-                                            {
-                                                value: 580,
-                                                name: 'Email'
-                                            },
-                                            {
-                                                value: 484,
-                                                name: 'Union Ads'
-                                            },
-                                            {
-                                                value: 300,
-                                                name: 'Video Ads'
-                                            }
                                         ]
                                     }]
                                 });

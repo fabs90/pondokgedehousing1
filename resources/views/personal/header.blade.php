@@ -29,6 +29,8 @@ https://cdn.jsdelivr.net/npm/swiper@11.1.1/swiper-bundle.min.css
     <link rel="stylesheet" href="{{ asset('personal/style.css') }}">
 
     <script src="https://unpkg.com/scrollreveal@4"></script>
+
+
 </head>
 
 <body>

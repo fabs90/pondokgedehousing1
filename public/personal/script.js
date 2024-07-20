@@ -117,12 +117,12 @@ document.addEventListener("DOMContentLoaded", function () {
             floatingActionButton.style.display = 'none';
         }
     });
-
-
-
 });
 
 function sendWhatsAppMsg() {
-    const urlToWhatsApp = `https://wa.me/6285899496182?text=Halo,perkenalkan saya ${username.value}. ${pesan.value}`
-    window.open(urlToWhatsApp, "_blank")
+
+    // URL untuk membuka WhatsApp
+    const urlToWhatsApp = `https://wa.me/6285899496182?text=Halo, perkenalkan saya ${username}. ${pesan}`;
+    window.open(urlToWhatsApp, "_blank");
+
 }
