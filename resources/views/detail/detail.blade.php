@@ -80,7 +80,7 @@
                 <div class="row gy-4 gy-lg-0">
                     <div class="col-12 col-md-6 col-lg-6">
                         <div class="widget">
-                            <h4 class="widget-title mb-4">Nomor Satpam</h4>
+                            <h4 class="widget-title mb-4">Nomor Pelayanan</h4>
                             <ul>
                                 <li>
                                     <a class=" link-secondary text-decoration-none" href="tel:+15057922430">085812345678
@@ -90,7 +90,7 @@
                                     <li>
                                         <a class=" link-secondary text-decoration-none"
                                             href="tel:{{ $item->no_telp }}">{{ $item->no_telp }}
-                                            ({{ $item->nama }})
+                                            ({{ $item->nama }} - {{ $item->role->nama }})
                                         </a>
                                     </li>
                                 @endforeach

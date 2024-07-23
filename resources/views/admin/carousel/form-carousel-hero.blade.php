@@ -8,7 +8,7 @@
 @section('dashboard-content')
     <div class="container article-container">
         <div class="row">
-            <div class="col-10">
+            <div class="col-12 col-lg-10">
                 <a href="{{ route('carousel.menu-utama') }}" class="btn btn-success mb-2">Kembali</a>
                 <div class="card">
                     <div class="card-body">

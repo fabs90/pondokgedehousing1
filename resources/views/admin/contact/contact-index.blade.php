@@ -52,7 +52,7 @@
                                     <div class="text-center">
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                         <button type="reset" class="btn btn-secondary">Reset</button>
-                                        <button type="submit" class="btn btn-warning text-light" data-bs-toggle="modal"
+                                        <button type="button"class="btn btn-warning text-light" data-bs-toggle="modal"
                                             data-bs-target="#staticTambahRole">Tambah Role</button>
                                     </div>
                                 </form><!-- Vertical Form -->

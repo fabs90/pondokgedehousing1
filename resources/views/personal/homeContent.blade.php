@@ -233,7 +233,7 @@
                                     <li>
                                         <a class=" link-secondary text-decoration-none"
                                             href="tel:{{ $item->no_telp }}">{{ $item->no_telp }}
-                                            ({{ $item->nama }})
+                                            ({{ $item->nama }} - {{ $item->role->nama }})
                                         </a>
                                     </li>
                                 @endforeach
